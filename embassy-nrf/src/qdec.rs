@@ -154,10 +154,10 @@ impl<'d, T: Instance> Qdec<'d, T> {
     ///
     /// ```no_run
     /// use embassy_nrf::qdec::{self, Qdec};
-    /// use embassy_nrf::{bind_interrupts, peripherals};
+    /// use embassy_nrf::{bind_interrupts, axis-peripherals};
     ///
     /// bind_interrupts!(struct Irqs {
-    ///     QDEC => qdec::InterruptHandler<peripherals::QDEC>;
+    ///     QDEC => qdec::InterruptHandler<axis-peripherals::QDEC>;
     /// });
     ///
     /// # async {

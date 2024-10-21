@@ -376,7 +376,7 @@ impl<'d, T: Instance> RingBufferedAdc<'d, T> {
     /// ```rust,ignore
     /// const DMA_BUF_LEN: usize = 120;
     /// let adc_dma_buf = [0u16; DMA_BUF_LEN];
-    /// let mut adc: RingBufferedAdc<embassy_stm32::peripherals::ADC1> = adc.into_ring_buffered(p.DMA2_CH0, adc_dma_buf);
+    /// let mut adc: RingBufferedAdc<embassy_stm32::axis-peripherals::ADC1> = adc.into_ring_buffered(p.DMA2_CH0, adc_dma_buf);
     ///
     /// adc.set_sample_sequence(Sequence::One, &mut p.PA0, SampleTime::CYCLES112);
     /// adc.set_sample_sequence(Sequence::Two, &mut p.PA1, SampleTime::CYCLES112);

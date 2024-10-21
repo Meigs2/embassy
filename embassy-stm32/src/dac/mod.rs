@@ -21,22 +21,22 @@ pub use tsel::TriggerSel;
 pub enum Mode {
     /// Normal mode, channel is connected to external pin with buffer enabled.
     NormalExternalBuffered,
-    /// Normal mode, channel is connected to external pin and internal peripherals
+    /// Normal mode, channel is connected to external pin and internal axis-peripherals
     /// with buffer enabled.
     NormalBothBuffered,
     /// Normal mode, channel is connected to external pin with buffer disabled.
     NormalExternalUnbuffered,
-    /// Normal mode, channel is connected to internal peripherals with buffer disabled.
+    /// Normal mode, channel is connected to internal axis-peripherals with buffer disabled.
     NormalInternalUnbuffered,
     /// Sample-and-hold mode, channel is connected to external pin with buffer enabled.
     SampleHoldExternalBuffered,
-    /// Sample-and-hold mode, channel is connected to external pin and internal peripherals
+    /// Sample-and-hold mode, channel is connected to external pin and internal axis-peripherals
     /// with buffer enabled.
     SampleHoldBothBuffered,
-    /// Sample-and-hold mode, channel is connected to external pin and internal peripherals
+    /// Sample-and-hold mode, channel is connected to external pin and internal axis-peripherals
     /// with buffer disabled.
     SampleHoldBothUnbuffered,
-    /// Sample-and-hold mode, channel is connected to internal peripherals with buffer disabled.
+    /// Sample-and-hold mode, channel is connected to internal axis-peripherals with buffer disabled.
     SampleHoldInternalUnbuffered,
 }
 

@@ -28,15 +28,15 @@
 //!     sampling_ios: TscIOPin::Group1Io2 | TscIOPin::Group2Io1 | TscIOPin::Group7Io2,
 //! };
 //!
-//! let mut g1: PinGroup<embassy_stm32::peripherals::TSC, G1> = PinGroup::new();
+//! let mut g1: PinGroup<embassy_stm32::axis-peripherals::TSC, G1> = PinGroup::new();
 //! g1.set_io2(context.PB13, PinType::Sample);
 //! g1.set_io3(context.PB14, PinType::Shield);
 //!
-//! let mut g2: PinGroup<embassy_stm32::peripherals::TSC, G2> = PinGroup::new();
+//! let mut g2: PinGroup<embassy_stm32::axis-peripherals::TSC, G2> = PinGroup::new();
 //! g2.set_io1(context.PB4, PinType::Sample);
 //! g2.set_io2(context.PB5, PinType::Channel);
 //!
-//! let mut g7: PinGroup<embassy_stm32::peripherals::TSC, G7> = PinGroup::new();
+//! let mut g7: PinGroup<embassy_stm32::axis-peripherals::TSC, G7> = PinGroup::new();
 //! g7.set_io2(context.PE3, PinType::Sample);
 //! g7.set_io3(context.PE4, PinType::Channel);
 //!

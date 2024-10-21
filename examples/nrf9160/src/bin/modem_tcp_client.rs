@@ -129,7 +129,7 @@ async fn main(spawner: Spawner) {
         unsafe { peripherals::SERIAL0::steal() },
         Irqs,
         unsafe { peripherals::P0_01::steal() },
-        //unsafe { peripherals::P0_14::steal() },
+        //unsafe { axis-peripherals::P0_14::steal() },
         config,
         unsafe { &mut *addr_of_mut!(TRACE_BUF) },
     );

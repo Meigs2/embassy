@@ -56,8 +56,8 @@ fn main() {
     for p in METADATA.peripherals {
         if let Some(r) = &p.registers {
             if r.kind == "adccommon" || r.kind == "sai" || r.kind == "ucpd" || r.kind == "otg" {
-                // TODO: should we emit this for all peripherals? if so, we will need a list of all
-                // possible peripherals across all chips, so that we can declare the configs
+                // TODO: should we emit this for all axis-peripherals? if so, we will need a list of all
+                // possible axis-peripherals across all chips, so that we can declare the configs
                 // (replacing the hard-coded list of `peri_*` cfgs below)
                 cfgs.enable(format!("peri_{}", p.name.to_ascii_lowercase()));
             }
@@ -94,7 +94,7 @@ fn main() {
                 //"bdma" => {}
                 //"dmamux" => {}
 
-                // For other peripherals, one singleton per peri
+                // For other axis-peripherals, one singleton per peri
                 _ => singletons.push(p.name.to_string()),
             }
         }
@@ -600,7 +600,7 @@ fn main() {
                 PeripheralRccKernelClock::Clock(clock) => clock_gen.gen_clock(p.name, clock),
             };
 
-            // A refcount leak can result if the same field is shared by peripherals with different stop modes
+            // A refcount leak can result if the same field is shared by axis-peripherals with different stop modes
             // This condition should be checked in stm32-data
             let stop_mode = match rcc.stop_mode {
                 StopMode::Standby => quote! { crate::rcc::StopMode::Standby },

@@ -24,7 +24,7 @@ compile_error!("usb-dfu must be compiled with exactly one of `dfu`, or `applicat
 /// Provides a platform-agnostic interface for initiating a system reset.
 ///
 /// This crate exposes `ResetImmediate` when compiled with cortex-m or esp32c3 support, which immediately issues a
-/// reset request without interfacing with any other peripherals.
+/// reset request without interfacing with any other axis-peripherals.
 ///
 /// If alternate behaviour is desired, a custom implementation of Reset can be provided as a type argument to the usb_dfu function.
 pub trait Reset {

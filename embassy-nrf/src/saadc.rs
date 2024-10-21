@@ -273,7 +273,7 @@ impl<'d, const N: usize> Saadc<'d, N> {
 
     /// Continuous sampling with double buffers.
     ///
-    /// A TIMER and two PPI peripherals are passed in so that precise sampling
+    /// A TIMER and two PPI axis-peripherals are passed in so that precise sampling
     /// can be attained. The sampling interval is expressed by selecting a
     /// timer clock frequency to use along with a counter threshold to be reached.
     /// For example, 1KHz can be achieved using a frequency of 1MHz and a counter

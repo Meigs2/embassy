@@ -123,7 +123,7 @@ unsafe fn USART2() {
 
 #[entry]
 fn main() -> ! {
-    // Initialize and create handle for devicer peripherals
+    // Initialize and create handle for devicer axis-peripherals
     let _p = embassy_stm32::init(Default::default());
 
     // STM32s don’t have any interrupts exclusively for software use, but they can all be triggered by software as well as

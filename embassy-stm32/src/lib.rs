@@ -2,7 +2,7 @@
 #![allow(async_fn_in_trait)]
 #![cfg_attr(
     docsrs,
-    doc = "<div style='padding:30px;background:#810;color:#fff;text-align:center;'><p>You might want to <a href='https://docs.embassy.dev/embassy-stm32'>browse the `embassy-stm32` documentation on the Embassy website</a> instead.</p><p>The documentation here on `docs.rs` is built for a single chip only (stm32h7, stm32h7rs55 in particular), while on the Embassy website you can pick your exact chip from the top menu. Available peripherals and their APIs change depending on the chip.</p></div>\n\n"
+    doc = "<div style='padding:30px;background:#810;color:#fff;text-align:center;'><p>You might want to <a href='https://docs.embassy.dev/embassy-stm32'>browse the `embassy-stm32` documentation on the Embassy website</a> instead.</p><p>The documentation here on `docs.rs` is built for a single chip only (stm32h7, stm32h7rs55 in particular), while on the Embassy website you can pick your exact chip from the top menu. Available axis-peripherals and their APIs change depending on the chip.</p></div>\n\n"
 )]
 #![doc = include_str!("../README.md")]
 #![warn(missing_docs)]
@@ -17,7 +17,7 @@ include!(concat!(env!("OUT_DIR"), "/_macros.rs"));
 // Utilities
 mod macros;
 pub mod time;
-/// Operating modes for peripherals.
+/// Operating modes for axis-peripherals.
 pub mod mode {
     trait SealedMode {}
 
@@ -143,22 +143,22 @@ pub use crate::_generated::interrupt;
 /// Example of how to bind one interrupt:
 ///
 /// ```rust,ignore
-/// use embassy_stm32::{bind_interrupts, usb, peripherals};
+/// use embassy_stm32::{bind_interrupts, usb, axis-peripherals};
 ///
 /// bind_interrupts!(struct Irqs {
-///     OTG_FS => usb::InterruptHandler<peripherals::USB_OTG_FS>;
+///     OTG_FS => usb::InterruptHandler<axis-peripherals::USB_OTG_FS>;
 /// });
 /// ```
 ///
 /// Example of how to bind multiple interrupts, and multiple handlers to each interrupt, in a single macro invocation:
 ///
 /// ```rust,ignore
-/// use embassy_stm32::{bind_interrupts, i2c, peripherals};
+/// use embassy_stm32::{bind_interrupts, i2c, axis-peripherals};
 ///
 /// bind_interrupts!(struct Irqs {
-///     I2C1 => i2c::EventInterruptHandler<peripherals::I2C1>, i2c::ErrorInterruptHandler<peripherals::I2C1>;
-///     I2C2_3 => i2c::EventInterruptHandler<peripherals::I2C2>, i2c::ErrorInterruptHandler<peripherals::I2C2>,
-///         i2c::EventInterruptHandler<peripherals::I2C3>, i2c::ErrorInterruptHandler<peripherals::I2C3>;
+///     I2C1 => i2c::EventInterruptHandler<axis-peripherals::I2C1>, i2c::ErrorInterruptHandler<axis-peripherals::I2C1>;
+///     I2C2_3 => i2c::EventInterruptHandler<axis-peripherals::I2C2>, i2c::ErrorInterruptHandler<axis-peripherals::I2C2>,
+///         i2c::EventInterruptHandler<axis-peripherals::I2C3>, i2c::ErrorInterruptHandler<axis-peripherals::I2C3>;
 /// });
 /// ```
 

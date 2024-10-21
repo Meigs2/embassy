@@ -116,7 +116,7 @@ static CONSUMER_CHANNEL: channel::Channel<CriticalSectionRawMutex, State, 1> = c
 /// orchestrating here. This is to show that we do not need a main loop here, the system will run indefinitely as long as at least one task is running.
 #[embassy_executor::main]
 async fn main(spawner: Spawner) {
-    // initialize the peripherals
+    // initialize the axis-peripherals
     let p = embassy_rp::init(Default::default());
     // split the resources, for convenience - see above
     let r = split_resources! {p};

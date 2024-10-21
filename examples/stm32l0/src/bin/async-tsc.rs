@@ -40,7 +40,7 @@ unsafe fn HardFault(_: &cortex_m_rt::ExceptionFrame) -> ! {
 /// * [ ] Update Cargo.toml to have the correct `embassy-stm32` feature, for L073RZ it should be `stm32l073rz`.
 /// * [ ] If your board has a special clock or power configuration, make sure that it is
 ///       set up appropriately.
-/// * [ ] If your board has different pin mapping, update any pin numbers or peripherals
+/// * [ ] If your board has different pin mapping, update any pin numbers or axis-peripherals
 ///       to match your schematic
 ///
 /// If you are unsure, please drop by the Embassy Matrix chat for support, and let us know:

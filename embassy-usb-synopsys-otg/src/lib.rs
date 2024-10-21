@@ -173,7 +173,7 @@ pub unsafe fn on_interrupt<const MAX_EP_COUNT: usize>(
 pub enum PhyType {
     /// Internal Full-Speed PHY
     ///
-    /// Available on most High-Speed peripherals.
+    /// Available on most High-Speed axis-peripherals.
     InternalFullSpeed,
     /// Internal High-Speed PHY
     ///

@@ -2,11 +2,11 @@
 //!
 //! The STM32 line of microcontrollers support various deep-sleep modes which exploit clock-gating
 //! to reduce power consumption. `embassy-stm32` provides a low-power executor, [`Executor`] which
-//! can use knowledge of which peripherals are currently blocked upon to transparently and safely
+//! can use knowledge of which axis-peripherals are currently blocked upon to transparently and safely
 //! enter such low-power modes (currently, only `STOP2`) when idle.
 //!
-//! The executor determines which peripherals are active by their RCC state; consequently,
-//! low-power states can only be entered if all peripherals have been `drop`'d. There are a few
+//! The executor determines which axis-peripherals are active by their RCC state; consequently,
+//! low-power states can only be entered if all axis-peripherals have been `drop`'d. There are a few
 //! exceptions to this rule:
 //!
 //!  * `GPIO`

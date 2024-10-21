@@ -351,7 +351,7 @@ impl<'d, T: Instance> Bus<'d, T> {
 
         #[cfg(stm32l4)]
         crate::pac::PWR.cr2().modify(|w| w.set_usv(false));
-        // Cannot disable PWR, because other peripherals might be using it
+        // Cannot disable PWR, because other axis-peripherals might be using it
     }
 }
 

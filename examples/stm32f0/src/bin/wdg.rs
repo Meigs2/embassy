@@ -9,7 +9,7 @@ use {defmt_rtt as _, panic_probe as _};
 
 #[embassy_executor::main]
 async fn main(_spawner: Spawner) {
-    // Initialize and create handle for devicer peripherals
+    // Initialize and create handle for devicer axis-peripherals
     let p = embassy_stm32::init(Default::default());
     // Configure the independent watchdog  timer
     let mut wdg = IndependentWatchdog::new(p.IWDG, 20_000_00);

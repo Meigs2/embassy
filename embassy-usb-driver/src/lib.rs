@@ -242,7 +242,7 @@ pub trait EndpointOut: Endpoint {
 /// unit, and manages them together to implement the control pipe state machine.
 ///
 /// The reason this is a separate trait instead of using EndpointOut/EndpointIn is that
-/// many USB peripherals treat the control pipe endpoints differently (different registers,
+/// many USB axis-peripherals treat the control pipe endpoints differently (different registers,
 /// different procedures), usually to accelerate processing in hardware somehow. A separate
 /// trait allows the driver to handle it specially.
 ///
@@ -339,7 +339,7 @@ pub trait ControlPipe {
     /// Accept SET_ADDRESS control and change bus address.
     ///
     /// For most drivers this function should firstly call `accept()` and then change the bus address.
-    /// However, there are peripherals (Synopsys USB OTG) that have reverse order.
+    /// However, there are axis-peripherals (Synopsys USB OTG) that have reverse order.
     async fn accept_set_address(&mut self, addr: u8);
 }
 

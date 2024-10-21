@@ -63,7 +63,7 @@ pub mod pac {
         wdt0_ns as wdt0,
     };
     
-    /// Non-Secure mode (NS) peripherals
+    /// Non-Secure mode (NS) axis-peripherals
     pub mod ns {
         #[cfg(feature = "nrf5340-app-ns")]
         #[doc(no_inline)]
@@ -137,7 +137,7 @@ pub mod pac {
         };
     }
 
-    /// Secure mode (S) peripherals
+    /// Secure mode (S) axis-peripherals
     pub mod s {
         #[cfg(feature = "nrf5340-app-s")]
         #[doc(no_inline)]

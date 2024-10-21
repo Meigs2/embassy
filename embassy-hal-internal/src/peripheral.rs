@@ -7,7 +7,7 @@ use core::ops::{Deref, DerefMut};
 /// a dedicated struct instead:
 ///
 /// - Memory efficiency: Peripheral singletons are typically either zero-sized (for concrete
-///   peripherals like `PA9` or `SPI4`) or very small (for example `AnyPin`, which is 1 byte).
+///   axis-peripherals like `PA9` or `SPI4`) or very small (for example `AnyPin`, which is 1 byte).
 ///   However `&mut T` is always 4 bytes for 32-bit targets, even if T is zero-sized.
 ///   PeripheralRef stores a copy of `T` instead, so it's the same size.
 /// - Code size efficiency. If the user uses the same driver with both `SPI4` and `&mut SPI4`,
@@ -88,8 +88,8 @@ impl<'a, T> Deref for PeripheralRef<'a, T> {
 
 /// Trait for any type that can be used as a peripheral of type `P`.
 ///
-/// This is used in driver constructors, to allow passing either owned peripherals (e.g. `TWISPI0`),
-/// or borrowed peripherals (e.g. `&mut TWISPI0`).
+/// This is used in driver constructors, to allow passing either owned axis-peripherals (e.g. `TWISPI0`),
+/// or borrowed axis-peripherals (e.g. `&mut TWISPI0`).
 ///
 /// For example, if you have a driver with a constructor like this:
 ///
@@ -105,13 +105,13 @@ impl<'a, T> Deref for PeripheralRef<'a, T> {
 /// }
 /// ```
 ///
-/// You may call it with owned peripherals, which yields an instance that can live forever (`'static`):
+/// You may call it with owned axis-peripherals, which yields an instance that can live forever (`'static`):
 ///
 /// ```ignore
 /// let mut twi: Twim<'static, ...> = Twim::new(p.TWISPI0, irq, p.P0_03, p.P0_04, config);
 /// ```
 ///
-/// Or you may call it with borrowed peripherals, which yields an instance that can only live for as long
+/// Or you may call it with borrowed axis-peripherals, which yields an instance that can only live for as long
 /// as the borrows last:
 ///
 /// ```ignore

@@ -127,7 +127,7 @@ impl Default for Config {
 /// ```no_run
 /// use embassy_executor::Spawner;
 /// use embassy_rp::trng::Trng;
-/// use embassy_rp::peripherals::TRNG;
+/// use embassy_rp::axis-peripherals::TRNG;
 /// use embassy_rp::bind_interrupts;
 ///
 /// bind_interrupts!(struct Irqs {
@@ -136,8 +136,8 @@ impl Default for Config {
 ///
 /// #[embassy_executor::main]
 /// async fn main(spawner: Spawner) {
-///     let peripherals = embassy_rp::init(Default::default());
-///     let mut trng = Trng::new(peripherals.TRNG, Irqs, embassy_rp::trng::Config::default());
+///     let axis-peripherals = embassy_rp::init(Default::default());
+///     let mut trng = Trng::new(axis-peripherals.TRNG, Irqs, embassy_rp::trng::Config::default());
 ///
 ///     let mut randomness = [0u8; 58];
 ///     loop {

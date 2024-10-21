@@ -98,7 +98,7 @@ rp235xa = ["_rp235x"]
 ## Configure the hal for use with the rp235xB
 rp235xb = ["_rp235x"]
 
-# hack around cortex-m peripherals being wrong when running tests.
+# hack around cortex-m axis-peripherals being wrong when running tests.
 _test = []
 
 ## Add a binary-info header block containing picotool-compatible metadata.

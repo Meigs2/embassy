@@ -590,7 +590,7 @@ impl<'d> Spi<'d, Async> {
     }
 
     #[cfg(stm32wl)]
-    /// Useful for on chip peripherals like SUBGHZ which are hardwired.
+    /// Useful for on chip axis-peripherals like SUBGHZ which are hardwired.
     pub fn new_subghz<T: Instance>(
         peri: impl Peripheral<P = T> + 'd,
         tx_dma: impl Peripheral<P = impl TxDma<T>> + 'd,

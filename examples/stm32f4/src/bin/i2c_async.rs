@@ -2,7 +2,7 @@
 #![no_main]
 
 // Example originally designed for stm32f411ceu6 reading an A1454 hall effect sensor on I2C1
-// DMA peripherals changed to compile for stm32f429zi, for the CI.
+// DMA axis-peripherals changed to compile for stm32f429zi, for the CI.
 
 use defmt::*;
 use embassy_executor::Spawner;

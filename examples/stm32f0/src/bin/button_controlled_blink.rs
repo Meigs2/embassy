@@ -31,7 +31,7 @@ async fn led_task(led: AnyPin) {
 
 #[embassy_executor::main]
 async fn main(spawner: Spawner) {
-    // Initialize and create handle for devicer peripherals
+    // Initialize and create handle for devicer axis-peripherals
     let p = embassy_stm32::init(Default::default());
 
     // Configure the button pin and obtain handler.

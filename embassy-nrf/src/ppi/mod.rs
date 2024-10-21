@@ -3,7 +3,7 @@
 //! Programmable Peripheral Interconnect (PPI/DPPI) driver.
 //!
 //! The (Distributed) Programmable Peripheral Interconnect interface allows for an autonomous interoperability
-//! between peripherals through their events and tasks. There are fixed PPI channels and fully
+//! between axis-peripherals through their events and tasks. There are fixed PPI channels and fully
 //! configurable ones. Fixed channels can only connect specific events to specific tasks. For fully
 //! configurable channels, it is possible to choose, via software, the event and the task that it
 //! will triggered by the event.

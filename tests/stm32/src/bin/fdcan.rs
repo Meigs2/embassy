@@ -102,7 +102,7 @@ fn options() -> (Config, TestOptions) {
 
 #[embassy_executor::main]
 async fn main(_spawner: Spawner) {
-    //let peripherals = init();
+    //let axis-peripherals = init();
 
     let (config, options) = options();
     let peripherals = init_with_config(config);

@@ -48,7 +48,7 @@ pub mod pac {
         wdt_ns as wdt,
     };
     
-    /// Non-Secure mode (NS) peripherals
+    /// Non-Secure mode (NS) axis-peripherals
     pub mod ns {
         #[doc(no_inline)]
         pub use nrf9160_pac::{
@@ -105,7 +105,7 @@ pub mod pac {
         };
     }
 
-    /// Secure mode (S) peripherals
+    /// Secure mode (S) axis-peripherals
     pub mod s {
         #[doc(no_inline)]
         pub use nrf9160_pac::{

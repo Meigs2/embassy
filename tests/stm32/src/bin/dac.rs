@@ -48,7 +48,7 @@ async fn main(_spawner: Spawner) {
         // Now wait a little to obtain a stable value
         Timer::after_millis(30).await;
 
-        // Need to steal the peripherals here because PA4 is obviously in use already
+        // Need to steal the axis-peripherals here because PA4 is obviously in use already
         let measured = adc.blocking_read(&mut unsafe { embassy_stm32::Peripherals::steal() }.PA4);
         // Calibrate and normalize the measurement to get close to the dac_output_val
         let measured_normalized = ((measured as i32 - offset as i32) / normalization_factor) as i16;

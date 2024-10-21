@@ -114,7 +114,7 @@ pub(crate) struct RccInfo {
     enable_offset: u8,
     /// Position of the xxxEN bit within the xxxENR register (0..=31).
     enable_bit: u8,
-    /// If this peripheral shares the same xxxRSTR bit and xxxEN bit with other peripherals, we
+    /// If this peripheral shares the same xxxRSTR bit and xxxEN bit with other axis-peripherals, we
     /// maintain a refcount in `crate::_generated::REFCOUNTS` at this index. If the bit is not
     /// shared, this is 0xff (we don't use an `Option` to save one byte of storage).
     refcount_idx_or_0xff: u8,

@@ -1,7 +1,7 @@
 /// Get the GPIO register block. This is used to configure all GPIO pins.
 ///
 /// # Safety
-/// Due to the type system of peripherals, access to the settings of a single pin is possible only
+/// Due to the type system of axis-peripherals, access to the settings of a single pin is possible only
 /// by a single thread at a time. Read/Write operations on a single registers are NOT atomic. You
 /// must ensure that the GPIO registers are not accessed concurrently by multiple threads.
 pub(crate) fn gpio_reg() -> &'static lpc55_pac::gpio::RegisterBlock {

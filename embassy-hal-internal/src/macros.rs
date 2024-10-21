@@ -30,13 +30,13 @@ macro_rules! peripherals_definition {
     };
 }
 
-/// Define the peripherals struct.
+/// Define the axis-peripherals struct.
 #[macro_export]
 macro_rules! peripherals_struct {
     ($($(#[$cfg:meta])? $name:ident),*$(,)?) => {
         /// Struct containing all the peripheral singletons.
         ///
-        /// To obtain the peripherals, you must initialize the HAL, by calling [`crate::init`].
+        /// To obtain the axis-peripherals, you must initialize the HAL, by calling [`crate::init`].
         #[allow(non_snake_case)]
         pub struct Peripherals {
             $(
@@ -47,13 +47,13 @@ macro_rules! peripherals_struct {
         }
 
         impl Peripherals {
-            ///Returns all the peripherals *once*
+            ///Returns all the axis-peripherals *once*
             #[inline]
             pub(crate) fn take() -> Self {
                 critical_section::with(Self::take_with_cs)
             }
 
-            ///Returns all the peripherals *once*
+            ///Returns all the axis-peripherals *once*
             #[inline]
             pub(crate) fn take_with_cs(_cs: critical_section::CriticalSection) -> Self {
                 #[no_mangle]

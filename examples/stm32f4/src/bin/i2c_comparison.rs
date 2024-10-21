@@ -3,7 +3,7 @@
 
 // Example originally designed for stm32f411ceu6 with three A1454 hall effect sensors, connected to I2C1, 2 and 3
 // on the pins referenced in the peripheral definitions.
-// Pins and DMA peripherals changed to compile for stm32f429zi, to work with the CI.
+// Pins and DMA axis-peripherals changed to compile for stm32f429zi, to work with the CI.
 // MUST be compiled in release mode to see actual performance, otherwise the async transactions take 2x
 // as long to complete as the blocking ones!
 
@@ -45,7 +45,7 @@ fn a1454_buf_to_i16(buffer: &[u8; 4]) -> i16 {
 
 #[embassy_executor::main]
 async fn main(_spawner: Spawner) {
-    info!("Setting up peripherals.");
+    info!("Setting up axis-peripherals.");
     let p = embassy_stm32::init(Default::default());
 
     let mut i2c1 = I2c::new(

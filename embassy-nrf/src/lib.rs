@@ -2,7 +2,7 @@
 #![allow(async_fn_in_trait)]
 #![cfg_attr(
     docsrs,
-    doc = "<div style='padding:30px;background:#810;color:#fff;text-align:center;'><p>You might want to <a href='https://docs.embassy.dev/embassy-nrf'>browse the `embassy-nrf` documentation on the Embassy website</a> instead.</p><p>The documentation here on `docs.rs` is built for a single chip only (nRF52840 in particular), while on the Embassy website you can pick your exact chip from the top menu. Available peripherals and their APIs change depending on the chip.</p></div>\n\n"
+    doc = "<div style='padding:30px;background:#810;color:#fff;text-align:center;'><p>You might want to <a href='https://docs.embassy.dev/embassy-nrf'>browse the `embassy-nrf` documentation on the Embassy website</a> instead.</p><p>The documentation here on `docs.rs` is built for a single chip only (nRF52840 in particular), while on the Embassy website you can pick your exact chip from the top menu. Available axis-peripherals and their APIs change depending on the chip.</p></div>\n\n"
 )]
 #![doc = include_str!("../README.md")]
 #![warn(missing_docs)]
@@ -156,21 +156,21 @@ mod chip;
 /// Example of how to bind one interrupt:
 ///
 /// ```rust,ignore
-/// use embassy_nrf::{bind_interrupts, spim, peripherals};
+/// use embassy_nrf::{bind_interrupts, spim, axis-peripherals};
 ///
 /// bind_interrupts!(struct Irqs {
-///     SPIM3 => spim::InterruptHandler<peripherals::SPI3>;
+///     SPIM3 => spim::InterruptHandler<axis-peripherals::SPI3>;
 /// });
 /// ```
 ///
 /// Example of how to bind multiple interrupts in a single macro invocation:
 ///
 /// ```rust,ignore
-/// use embassy_nrf::{bind_interrupts, spim, twim, peripherals};
+/// use embassy_nrf::{bind_interrupts, spim, twim, axis-peripherals};
 ///
 /// bind_interrupts!(struct Irqs {
-///     SPIM3 => spim::InterruptHandler<peripherals::SPI3>;
-///     SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0 => twim::InterruptHandler<peripherals::TWISPI0>;
+///     SPIM3 => spim::InterruptHandler<axis-peripherals::SPI3>;
+///     SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0 => twim::InterruptHandler<axis-peripherals::TWISPI0>;
 /// });
 /// ```
 
@@ -299,7 +299,7 @@ pub mod config {
         pub regmain: bool,
     }
 
-    /// Configuration for peripherals. Default configuration should work on any nRF chip.
+    /// Configuration for axis-peripherals. Default configuration should work on any nRF chip.
     #[non_exhaustive]
     pub struct Config {
         /// High frequency clock source.

@@ -156,10 +156,10 @@ embassy_hal_internal::interrupt_mod!(
 /// Example of how to bind one interrupt:
 ///
 /// ```rust,ignore
-/// use embassy_rp::{bind_interrupts, usb, peripherals};
+/// use embassy_rp::{bind_interrupts, usb, axis-peripherals};
 ///
 /// bind_interrupts!(struct Irqs {
-///     USBCTRL_IRQ => usb::InterruptHandler<peripherals::USB>;
+///     USBCTRL_IRQ => usb::InterruptHandler<axis-peripherals::USB>;
 /// });
 /// ```
 ///
@@ -525,7 +525,7 @@ unsafe fn install_stack_guard(stack_bottom: *mut usize) -> Result<(), ()> {
 }
 
 // This is to hack around cortex_m defaulting to ARMv7 when building tests,
-// so the compile fails when we try to use ARMv8 peripherals.
+// so the compile fails when we try to use ARMv8 axis-peripherals.
 #[cfg(feature = "_test")]
 #[inline(always)]
 unsafe fn install_stack_guard(_stack_bottom: *mut usize) -> Result<(), ()> {

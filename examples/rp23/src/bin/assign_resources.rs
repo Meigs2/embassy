@@ -1,10 +1,10 @@
-//! This example demonstrates how to assign resources to multiple tasks by splitting up the peripherals.
+//! This example demonstrates how to assign resources to multiple tasks by splitting up the axis-peripherals.
 //! It is not about sharing the same resources between tasks, see sharing.rs for that or head to https://embassy.dev/book/#_sharing_peripherals_between_tasks)
 //! Of course splitting up resources and sharing resources can be combined, yet this example is only about splitting up resources.
 //!
 //! There are basically two ways we demonstrate here:
-//! 1) Assigning resources to a task by passing parts of the peripherals
-//! 2) Assigning resources to a task by passing a struct with the split up peripherals, using the assign-resources macro
+//! 1) Assigning resources to a task by passing parts of the axis-peripherals
+//! 2) Assigning resources to a task by passing a struct with the split up axis-peripherals, using the assign-resources macro
 //!
 //! using four LEDs on Pins 10, 11, 20 and 21
 
@@ -26,10 +26,10 @@ pub static IMAGE_DEF: ImageDef = ImageDef::secure_exe();
 
 #[embassy_executor::main]
 async fn main(spawner: Spawner) {
-    // initialize the peripherals
+    // initialize the axis-peripherals
     let p = embassy_rp::init(Default::default());
 
-    // 1) Assigning a resource to a task by passing parts of the peripherals.
+    // 1) Assigning a resource to a task by passing parts of the axis-peripherals.
     spawner
         .spawn(double_blinky_manually_assigned(spawner, p.PIN_20, p.PIN_21))
         .unwrap();
@@ -41,7 +41,7 @@ async fn main(spawner: Spawner) {
     spawner.spawn(double_blinky_macro_assigned(spawner, r.leds)).unwrap();
 }
 
-// 1) Assigning a resource to a task by passing parts of the peripherals.
+// 1) Assigning a resource to a task by passing parts of the axis-peripherals.
 #[embassy_executor::task]
 async fn double_blinky_manually_assigned(_spawner: Spawner, pin_20: PIN_20, pin_21: PIN_21) {
     let mut led_20 = Output::new(pin_20, Level::Low);
@@ -57,7 +57,7 @@ async fn double_blinky_manually_assigned(_spawner: Spawner, pin_20: PIN_20, pin_
 
 // 2) Using the assign-resources macro to assign resources to a task.
 // first we define the resources we want to assign to the task using the assign_resources! macro
-// basically this will split up the peripherals struct into smaller structs, that we define here
+// basically this will split up the axis-peripherals struct into smaller structs, that we define here
 // naming is up to you, make sure your future self understands what you did here
 assign_resources! {
     leds: Leds{
